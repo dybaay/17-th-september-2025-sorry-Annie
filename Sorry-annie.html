@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Message for Annie</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0d0d2b;
+            color: #e0e0e0;
+            font-family: 'Roboto Mono', monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(13, 13, 43, 0) 50%, rgba(13, 13, 43, 0.9) 100%);
+            z-index: 1;
+        }
+
+        .container {
+            text-align: left;
+            width: 80%;
+            max-width: 800px;
+            padding: 20px;
+            border: 1px solid #3c3c7a;
+            border-radius: 15px;
+            background-color: rgba(20, 20, 50, 0.3);
+            box-shadow: 0 0 25px rgba(60, 60, 122, 0.7);
+            z-index: 2;
+        }
+
+        #letter {
+            font-size: 1.2em;
+            line-height: 1.6;
+            white-space: pre-wrap;
+        }
+
+        #letter .cursor {
+            display: inline-block;
+            background-color: #00ffcc;
+            margin-left: 5px;
+            width: 10px;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            color: #00ffcc;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="letter"></div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const letterElement = document.getElementById('letter');
+            const text = `Annie, I am truly sorry. Tonight I said/asked things in panic and I called you ‘useless’ and even suggested we end us. That was cruel and unacceptable. I take full responsibility. I don’t expect this fixed by one message. Tell me what you need for me to begin making this right and I’ll follow through. I love you and I’ll show it by changing, not by buying you off. 
+I will not argue again since you're really in your ranting era. I will stop talking. Let me know when to speak, or if you're really going to bed. Normally, even your health couldn't make you sleep, but a small issue is whining you. You are a fool!!! Please love, I genuinely, intentionally, humbly, even in my highest pride, I can't hurt you, baby. Sorry Annie, stop stressing this small boy. I am soft. A steel is that strong because of the soft cushion lining, baby. I love you. I am breaking down, help me, my crew members are noticing already. I love you. 
+It took me and my tools at our highest capacity to do this, no amount of money can get me to that, na why we said less but communicated more, na why I be Idan and na why you be my baby Annie. When you're free, send in the logo of your choice cuz I know you like collecting memories. 
+I've broken all my rules tonight, it's not even pride is to justify your points, I no dey work again until your mood can work again, me sef go work`;
+            let i = 0;
+            const speed = 50; // milliseconds per character
+
+            function typeWriter() {
+                if (i < text.length) {
+                    letterElement.innerHTML = text.substring(0, i + 1) + '<span class="cursor"></span>';
+                    i++;
+                    setTimeout(typeWriter, speed);
+                } else {
+                    letterElement.innerHTML = text + '<span class="cursor"></span>';
+                }
+            }
+
+            typeWriter();
+        });
+    </script>
+</body>
+</html>
